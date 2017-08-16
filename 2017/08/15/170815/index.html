@@ -74,7 +74,7 @@
 
     
         <meta property="article:published_time" content="8月 15, 2017" />
-        <meta property="article:modified_time" content="8月 15, 2017" />
+        <meta property="article:modified_time" content="8月 16, 2017" />
     
 
     <!-- The Twitter Card protocol -->
@@ -115,7 +115,7 @@
     "headline": "前端常见bug汇总",
     "url": "http://yoursite.com/2017/08/15/170815/index.html",
     "datePublished": "8月 15, 2017",
-    "dateModified": "8月 15, 2017",
+    "dateModified": "8月 16, 2017",
     "description": "木子林3",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -485,6 +485,8 @@
     
         <h2 id="用来记录前端常见的bug"><a href="#用来记录前端常见的bug" class="headerlink" title="用来记录前端常见的bug"></a>用来记录前端常见的bug</h2><h3 id="1-在多个行内元素排成一行时，元素之前存在间隔"><a href="#1-在多个行内元素排成一行时，元素之前存在间隔" class="headerlink" title="1.在多个行内元素排成一行时，元素之前存在间隔"></a>1.在多个行内元素排成一行时，元素之前存在间隔</h3><p>产生原因：换行符、tab（制表符）、空格产生间隙<br>解决方案<br>1、font-size设为0<br>2、元素写成一行</p>
 <h3 id="2-a便签下的img有padding5px的效果"><a href="#2-a便签下的img有padding5px的效果" class="headerlink" title="2.a便签下的img有padding5px的效果"></a>2.a便签下的img有padding5px的效果</h3><p>解决方案<br>img的display设置为block</p>
+<p>###3、水平居中跳动的问题<br>产生原因：滑动块导致<br>解决方案<br>1.html{<br>    overflow-y:scroll;<br>}<br>2.caontainer{<br>    padding-left:calc(100vw - 100%); 100vw浏览器宽度 100%可用内容宽度<br>}</p>
+<p>###4、内部绝对定位，overflow失效<br>产生原因：绝对定位元素不总是被父级元素overflow属性剪裁，尤其当overflow在绝对定位元素及其包含块（含position:relative/absolute/fixed声明的父级元素）之间的时候。<br>解决方案<br>父级元素设为包含块</p>
 
     
 
