@@ -74,7 +74,7 @@
 
     
         <meta property="article:published_time" content="8月 22, 2017" />
-        <meta property="article:modified_time" content="8月 22, 2017" />
+        <meta property="article:modified_time" content="9月 17, 2017" />
     
 
     <!-- The Twitter Card protocol -->
@@ -115,7 +115,7 @@
     "headline": "图片预加载",
     "url": "http://yoursite.com/2017/08/22/170822/index.html",
     "datePublished": "8月 22, 2017",
-    "dateModified": "8月 22, 2017",
+    "dateModified": "9月 17, 2017",
     "description": "木子林3",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -336,7 +336,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图片预加载"><span class="post-toc-number">1.</span> <span class="post-toc-text">图片预加载</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#无序加载"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">无序加载</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图片预加载"><span class="post-toc-number">1.</span> <span class="post-toc-text">图片预加载</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#无序加载"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">无序加载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#有序加载"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">有序加载</span></a></li></ol></li></ol>
         <!--
         <li class="mdl-menu__item">
             Some Action
@@ -485,7 +485,7 @@
     
         <h2 id="图片预加载"><a href="#图片预加载" class="headerlink" title="图片预加载"></a>图片预加载</h2><p>当前各种网站图片的大量使用很大程度上丰富了网站内容，方便了人们阅读，但与之而来的大量图片的使用，在网站加载时增加了负担，如果不能很好的及时有效的加载这些图片，会造成图片展示不全或不展示等一系列用户体验不好的问题。从而会降低用户对整体网站的体验度。而为了解决这种不好的体验往往就采用图片预加载的这种解决方式。<br>“预加载”顾名思义就是事先加载，它预判用户可能的操作，事先加载好可能浏览的图片，从而在用户正真访问时从缓存中快速访问，达到快速流畅的效果。而预加载参考别人的说法又分为两类，有序加载和无序加载。</p>
 <h3 id="无序加载"><a href="#无序加载" class="headerlink" title="无序加载"></a>无序加载</h3><p>无序加载就是加载时不考虑图片的加载顺序往往是一次性的加载可能访问的图片，适用的场景比如图片册等。代码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">Preload.prototype._unordered = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">	debugger;</div><div class="line">	var count = 0,</div><div class="line">		imgs = this.imgs,</div><div class="line">		options = this.options;</div><div class="line">	$.each(imgs, <span class="keyword">function</span>(i, src) &#123;</div><div class="line">		<span class="keyword">if</span> (typeof src != <span class="string">"string"</span>) &#123;</div><div class="line">			<span class="built_in">return</span>;</div><div class="line">		&#125;</div><div class="line">		var imgObj = new Image();</div><div class="line">		$(imgObj).on(<span class="string">"load error"</span>, <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">			options.each &amp;&amp; options.each(count);</div><div class="line">			<span class="keyword">if</span> (count &gt;= imgs.length - 1) &#123; </div><div class="line">				options.all &amp;&amp; options.all();</div><div class="line">			&#125;</div><div class="line">			count++</div><div class="line">		&#125;);</div><div class="line">		imgObj.src = src;</div><div class="line">	&#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>###有序加载<br>有序加载与无序加载对应的是加载时需要考虑图片的加载顺序，必须在前一张加载完成之后再加载下一张，比如漫画网站，在浏览漫画时，漫画的每一页都是有顺序的，必须要按照页数来顺序加载。代码如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">Preload.prototype._ordered = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">	debugger;</div><div class="line">	<span class="keyword">if</span> (typeof src != <span class="string">"string"</span>) &#123;</div><div class="line">		<span class="built_in">return</span>;</div><div class="line">	&#125;</div><div class="line">	var count = 0,</div><div class="line">		imgs = this.imgs,</div><div class="line">		options = this.options;</div><div class="line"></div><div class="line">	<span class="keyword">function</span> <span class="function"><span class="title">load</span></span>() &#123;</div><div class="line">		var imgObj = new Image();</div><div class="line">		$(imgObj).on(<span class="string">"load error"</span>, <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">			options.each &amp;&amp; options.each();</div><div class="line">			<span class="keyword">if</span> (count &gt;= imgs.length - 1) &#123;</div><div class="line">				options.all &amp;&amp; options.all();</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				load();</div><div class="line">			&#125;</div><div class="line">		&#125;);</div><div class="line">		imgObj.src = imgs[count];</div><div class="line">		count++;</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="有序加载"><a href="#有序加载" class="headerlink" title="有序加载"></a>有序加载</h3><p>有序加载与无序加载对应的是加载时需要考虑图片的加载顺序，必须在前一张加载完成之后再加载下一张，比如漫画网站，在浏览漫画时，漫画的每一页都是有顺序的，必须要按照页数来顺序加载。代码如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">Preload.prototype._ordered = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">	debugger;</div><div class="line">	<span class="keyword">if</span> (typeof src != <span class="string">"string"</span>) &#123;</div><div class="line">		<span class="built_in">return</span>;</div><div class="line">	&#125;</div><div class="line">	var count = 0,</div><div class="line">		imgs = this.imgs,</div><div class="line">		options = this.options;</div><div class="line"></div><div class="line">	<span class="keyword">function</span> <span class="function"><span class="title">load</span></span>() &#123;</div><div class="line">		var imgObj = new Image();</div><div class="line">		$(imgObj).on(<span class="string">"load error"</span>, <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">			options.each &amp;&amp; options.each();</div><div class="line">			<span class="keyword">if</span> (count &gt;= imgs.length - 1) &#123;</div><div class="line">				options.all &amp;&amp; options.all();</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				load();</div><div class="line">			&#125;</div><div class="line">		&#125;);</div><div class="line">		imgObj.src = imgs[count];</div><div class="line">		count++;</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <p>###以上就是图片预加载的两种简易方法，图片预加载的核心思想就是“未雨绸缪”，在还未浏览到可能浏览的图片时，利用当前浏览的空闲时间去加载后面的图片，在加载的时候可能会用AJAX的异步请求的技术，但只要搞清楚它的原理，只是修改它的加载方式就很easy啦。<br>下面附上完整预加载插件代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line">(<span class="keyword">function</span>($) &#123;</div><div class="line">	debugger;</div><div class="line"></div><div class="line">	<span class="keyword">function</span> Preload(imgs, options) &#123;</div><div class="line">		this.imgs = (typeof imgs === <span class="string">"string"</span>) ? [imgs] : imgs;</div><div class="line">		this.options = $.extend(&#123;&#125;, Preload.DEFAULTS, options)</div><div class="line">		<span class="keyword">if</span> (this.options.order === <span class="string">"unordered"</span>) &#123;</div><div class="line">			this._unordered();</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			this._ordered();</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">	Preload.DEFAULTS = &#123;</div><div class="line">		order: <span class="string">"unordered"</span>,</div><div class="line">		each: null, //每加载一个图片完毕执行</div><div class="line">		all: null //所有图片加载完毕后执行</div><div class="line">	&#125;;</div><div class="line">	Preload.prototype._ordered = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">		debugger;</div><div class="line">		<span class="keyword">if</span> (typeof src != <span class="string">"string"</span>) &#123;</div><div class="line">			<span class="built_in">return</span>;</div><div class="line">		&#125;</div><div class="line">		var count = 0,</div><div class="line">			imgs = this.imgs,</div><div class="line">			options = this.options;</div><div class="line"></div><div class="line">		<span class="keyword">function</span> <span class="function"><span class="title">load</span></span>() &#123;</div><div class="line">			var imgObj = new Image();</div><div class="line">			$(imgObj).on(<span class="string">"load error"</span>, <span class="function"><span class="title">function</span></span>() &#123; </div><div class="line">				options.each &amp;&amp; options.each();</div><div class="line">				<span class="keyword">if</span> (count &gt;= imgs.length - 1) &#123; //判断是否加载完毕</div><div class="line">					options.all &amp;&amp; options.all();</div><div class="line">				&#125; <span class="keyword">else</span> &#123;</div><div class="line">					load(); //加载下一张</div><div class="line">				&#125;</div><div class="line">			&#125;);</div><div class="line">			imgObj.src = imgs[count];</div><div class="line">			count++;</div><div class="line">		&#125;</div><div class="line">	&#125;;</div><div class="line">	Preload.prototype._unordered = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">		debugger;</div><div class="line">		var count = 0,</div><div class="line">			imgs = this.imgs,</div><div class="line">			options = this.options;</div><div class="line">		$.each(imgs, <span class="keyword">function</span>(i, src) &#123;</div><div class="line">			<span class="keyword">if</span> (typeof src != <span class="string">"string"</span>) &#123;</div><div class="line">				<span class="built_in">return</span>;</div><div class="line">			&#125;</div><div class="line">			var imgObj = new Image();</div><div class="line">			$(imgObj).on(<span class="string">"load error"</span>, <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">				options.each &amp;&amp; options.each(count);</div><div class="line">				<span class="keyword">if</span> (count &gt;= imgs.length - 1) &#123; //判断是否加载完毕</div><div class="line">					options.all &amp;&amp; options.all();</div><div class="line">				&#125;</div><div class="line">				count++</div><div class="line">			&#125;);</div><div class="line">			imgObj.src = src;</div><div class="line">		&#125;);</div><div class="line">	&#125;;</div><div class="line">	$.extend(&#123;</div><div class="line">		preload: <span class="keyword">function</span>(imgs, opts) &#123;</div><div class="line">			new Preload(imgs, opts);</div><div class="line">		&#125;</div><div class="line">	&#125;)</div><div class="line">&#125;)(jQuery);</div></pre></td></tr></table></figure></p>
 
     
@@ -596,11 +596,20 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
         <ul id="settings-dropdown" class="dropdown-menu">
             
                 <li>
-                    <a href="mailto: 905375993@qq.com" target="_blank" title="Email Me">
+                    <a href="mailto: someone@example.com" target="_blank" title="Email Me">
                         
                             <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
                         
                         Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="" target="_blank" title="Game">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">inbox</i>
+                        
+                        Game
                     </a>
                 </li>
             
@@ -634,7 +643,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">5</span></a>
+                <a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">5</span></a>
             </ul>
         </li>
         
@@ -652,7 +661,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/Vue/">Vue<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/bug/">bug<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/test/">test<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/前端优化/">前端优化<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/categories/Vue/">Vue<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/bug/">bug<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/test/">test<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/前端问题/">前端问题<span class="sidebar_archives-count">2</span></a>
             </ul>
         </li>
         
@@ -661,6 +670,16 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
     
 
     <!-- Pages  -->
+    
+        <li>
+            <a href="/project/2048/2048.html" title="2048">
+                
+                    <i class="material-icons sidebar-material-icons">videogame_asset</i>
+                
+                2048
+            </a>
+        </li>
+        
     
         <li>
             <a href="/timeline" title="时间轴">
@@ -708,7 +727,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">5</span>
+                <span class="sidebar-badge">6</span>
             </a>
         </li>
         
