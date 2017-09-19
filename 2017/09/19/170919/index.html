@@ -12,7 +12,7 @@
     
     <title>
         
-            分类: 前端问题 | 
+            从零开始学Vue（二） | 
         
         木子林
     </title>
@@ -38,7 +38,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="李武林">
     <meta name="description" itemprop="description" content="木子林3">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",Vue">
 
     <!-- Site Verification -->
     
@@ -67,15 +67,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="分类: 前端问题 | 木子林">
+    <meta property="og:title" content="从零开始学Vue（二） | 木子林">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="木子林3">
-    
+    <meta property="og:article:tag" content="Vue"> 
 
+    
+        <meta property="article:published_time" content="9月 19, 2017" />
+        <meta property="article:modified_time" content="9月 19, 2017" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="分类: 前端问题 | 木子林">
+    <meta name="twitter:title" content="从零开始学Vue（二） | 木子林">
     <meta name="twitter:description" content="木子林3">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -83,13 +86,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/categories/前端问题/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2017/09/19/170919/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "木子林",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "李武林",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "朋友！不要怕，我并不是什么好人~"
+    },
+    "headline": "从零开始学Vue（二）",
+    "url": "http://yoursite.com/2017/09/19/170919/index.html",
+    "datePublished": "9月 19, 2017",
+    "dateModified": "9月 19, 2017",
+    "description": "木子林3",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com"
+    }
+}
+</script>
 
 
     
@@ -276,167 +309,256 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Vue常用指令"><span class="post-toc-number">1.</span> <span class="post-toc-text">Vue常用指令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-文本"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.文本</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-属性"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2.属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-监听事件"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3.监听事件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-条件渲染"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4.条件渲染</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-表单输入绑定"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">5.表单输入绑定</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-列表渲染"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">6.列表渲染</span></a></li></ol></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 16 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/17/170917/">解决跨域问题</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            域名首先先了解一个...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/17/170917/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="李武林's avatar">
-            </div>
-            <div>
-                <strong>李武林</strong>
-                <span>9月 17, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/前端问题/">前端问题</a>
-            </span>
-
-            
-
-            
-                <!-- Comment Number -->
-                &nbsp;|&nbsp;
-                <span class="post_entry-comment" >
-                        <span id = "sourceId::2017/09/17/170917/" class = "cy_cmt_count" ></span>条评论
-                </span>
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/08/22/170822/">图片预加载</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            图片预加载
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/08/22/170822/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="李武林's avatar">
-            </div>
-            <div>
-                <strong>李武林</strong>
-                <span>8月 22, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/前端问题/">前端问题</a>
-            </span>
-
-            
-
-            
-                <!-- Comment Number -->
-                &nbsp;|&nbsp;
-                <span class="post_entry-comment" >
-                        <span id = "sourceId::2017/08/22/170822/" class = "cy_cmt_count" ></span>条评论
-                </span>
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 16 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                从零开始学Vue（二）
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>李武林</strong>
+        <span>9月 19, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2017/09/19/170919/">
+    
+</ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Vue/">Vue</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=从零开始学Vue（二）&url=http://yoursite.com/2017/09/19/170919/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=木子林&title=从零开始学Vue（二）&summary=木子林3&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2017/09/19/170919/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="Vue常用指令"><a href="#Vue常用指令" class="headerlink" title="Vue常用指令"></a>Vue常用指令</h2><p>指令（Directive）是带有“v-”前缀的特殊属性，它的值是单个JavaScript表达式，指令的职责是当表达式的值发生变化时，响应式的更新dom。<br>Vue和Angular的指令十分相似，如果有学过Angular在学习vue的指令时会感到十分亲切。</p>
+<h3 id="1-文本"><a href="#1-文本" class="headerlink" title="1.文本"></a>1.文本</h3><p>Vue中向html中插值的方法有三种<br>Mustache语法 v-html v-text<br>（1）Mustache语法<br>Mustache语法（双大括号）是比较常见的数据绑定形式,当大双括号中绑定的数据对象更新时，相应的插值处的值也会更新<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;sapn&gt;&#123;&#123;message&#125;&#125;&lt;/sapn&gt;</div></pre></td></tr></table></figure></p>
+<p>如果有时你只希望只在页面初始化时进行插值，之后数据更新不在更新插值出的内容可以使用“v-once”指令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;sapn v-once&gt;&#123;&#123;message&#125;&#125;&lt;/sapn&gt;</div></pre></td></tr></table></figure></p>
+<p>对于绑定的数据可以使用JavaScript表达式（注：每个绑定只能是单个表达式，不能是语句）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;sapn&gt;&#123;&#123; number+1 &#125;&#125;&lt;/sapn&gt;</div><div class="line">&lt;sapn&gt;&#123;&#123; ok?<span class="string">'yes'</span>:<span class="string">'no'</span> &#125;&#125;&lt;/sapn&gt;</div><div class="line">&lt;sapn&gt;&#123;&#123; message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>) &#125;&#125;&lt;/sapn&gt;</div></pre></td></tr></table></figure></p>
+<p>（2）v-text<br>v-text和Mustache语法使用规则基本一致基本一致<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;sapn v-text=<span class="string">"message"</span>&gt;&lt;/sapn&gt;</div></pre></td></tr></table></figure></p>
+<p>（3）v-html<br>v-text和Mustache语法会直接将数据展示，对于数据是html代码将不会进行解释会之间原封不动的展示，而如果你想输出正真的html代码，就可以使用v-html,testtHtml=”<sapn>Hello World</sapn>“<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div v-text=<span class="string">"rawHtml"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>渲染为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">	&lt;sapn&gt;Hello World&lt;/sapn&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="2-属性"><a href="#2-属性" class="headerlink" title="2.属性"></a>2.属性</h3><p>Mustache语法不能将数据绑定到html属性上，vue为绑定数据到html属性上提给了v-bind指令。v-bind的缩写为“:”<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!--完整语法 --&gt;</div><div class="line">&lt;p v-bind:title=<span class="string">"message"</span>&gt;</div><div class="line">&lt;!--缩写 --&gt;</div><div class="line">&lt;p :title=<span class="string">"message"</span>&gt;</div></pre></td></tr></table></figure></p>
+<p>用法：v-bind:属性名=属性值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"demo2"</span>&gt;</div><div class="line">	&lt;p v-bind:title=<span class="string">"message"</span>&gt;鼠标悬停&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">var demo2 = new Vue(&#123;</div><div class="line">	el:<span class="string">"#demo2"</span>,</div><div class="line">	data:&#123;</div><div class="line">		message:<span class="string">"页面加载于"</span> + new Date().toLocaleString()</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>属性中的特例，为了更好的绑定式样，class和style的值不仅可以是字符串还可以是对象和数组。而且v-bind:class的值还可以与其他普通的class共存<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"classDemo"</span>&gt;</div><div class="line">	&lt;p class=<span class="string">"mini-font-size"</span> v-bind:class=<span class="string">"&#123;active:isActive,'text-success'&#125;"</span>&gt;<span class="built_in">test</span>&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">data:&#123;</div><div class="line">	isActive:<span class="literal">true</span>,</div><div class="line">	text-success:<span class="literal">false</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>最终的渲染结果为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"classDemo"</span>&gt;</div><div class="line">	&lt;p class=<span class="string">"mini-font-size isActive"</span>&gt;<span class="built_in">test</span>&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="3-监听事件"><a href="#3-监听事件" class="headerlink" title="3.监听事件"></a>3.监听事件</h3><p>为dom上绑定监听事件需要用到v-on指令。v-on的缩写为“@”<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!--完整语法 --&gt;</div><div class="line">&lt;button v-on:click=<span class="string">"reverseMessage"</span>&gt;</div><div class="line">&lt;!--缩写 --&gt;</div><div class="line">&lt;button @click=<span class="string">"reverseMessage"</span>&gt;</div></pre></td></tr></table></figure></p>
+<p>一般用法v-on:事件名=绑定的方法 （还可添加修饰符和修饰键）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"demo5"</span>&gt;</div><div class="line">	&lt;p v-text=<span class="string">"message"</span>&gt;&lt;/p&gt;</div><div class="line">	&lt;button v-on:click=<span class="string">"reverseMessage"</span>&gt;逆转字符串&lt;/button&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">var demo5 = new Vue(&#123;</div><div class="line">	el:<span class="string">"#demo5"</span>,</div><div class="line">	data:&#123;</div><div class="line">		message:<span class="string">"hello world"</span></div><div class="line">	&#125;,</div><div class="line">	methods:&#123;</div><div class="line">		reverseMessage:<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		this.message = this.message.split(<span class="string">""</span>).reverse().join(<span class="string">""</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="4-条件渲染"><a href="#4-条件渲染" class="headerlink" title="4.条件渲染"></a>4.条件渲染</h3><p>v-if和v-show可以用于页面元素的展示和隐藏。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"demo3"</span>&gt;</div><div class="line">	&lt;div v-if=<span class="string">"isShow"</span>&gt;</div><div class="line">		这一段被显示</div><div class="line">	&lt;/div&gt;</div><div class="line">	&lt;div v-if=<span class="string">"!isShow"</span>&gt;</div><div class="line">			这一段不被显示</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">var demo3 = new Vue(&#123;</div><div class="line">	el:<span class="string">"#demo3"</span>,</div><div class="line">	data:&#123;</div><div class="line">		isShow:<span class="literal">true</span></div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>修改isShow的值可以控制组件的显示，当v-if和v-show的值为true时，绑定的组件将在页面中展示，为false时将被隐藏。有人会有这样的疑问，为什么两个使用的方法一样，展示的效果也一样为什么要v-if和v-show呢<br>v-if VS v-show<br>v-if是“真正的”的条件渲染，当为true时组件会被渲染，而当false时组件则会被摧毁，v-if页面初始化时为false将不渲染。<br>v-show时无论true还是false组件都会被渲染，只是基于css的切换。<br>两者比较v-if有更高的切换开销，而v-show可能会有更高的初始化开销<br>所以当页面中需要频繁的切换则使用v-show较好，而如果在初始化之后条件不太可能发生变化，使用v-if比较好。</p>
+<h3 id="5-表单输入绑定"><a href="#5-表单输入绑定" class="headerlink" title="5.表单输入绑定"></a>5.表单输入绑定</h3><p>你可以使用v-model元素在表单元素上进行双向数据绑定<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"demo6"</span>&gt;</div><div class="line">	&lt;p v-text=<span class="string">"message"</span>&gt;&lt;/p&gt;</div><div class="line">	&lt;input v-model=<span class="string">"message"</span> <span class="built_in">type</span>=<span class="string">"text"</span>&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">var demo6 = new Vue(&#123;</div><div class="line">	el:<span class="string">"#demo6"</span>,</div><div class="line">	data:&#123;</div><div class="line">		message:<span class="string">""</span></div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="6-列表渲染"><a href="#6-列表渲染" class="headerlink" title="6.列表渲染"></a>6.列表渲染</h3><p>是用v-for进行列表渲染，v-for需要使用“item in items”的语法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"demo4"</span>&gt;</div><div class="line">	&lt;ul&gt;</div><div class="line">		&lt;li v-for=<span class="string">"person in persons"</span>&gt;</div><div class="line">			&lt;span&gt;姓名:&#123;&#123;person.name&#125;&#125;,&lt;/span&gt;</div><div class="line">			&lt;span&gt;年龄:&#123;&#123;person.age&#125;&#125;&lt;/span&gt;</div><div class="line">		&lt;/li&gt;</div><div class="line">	&lt;/ul&gt;</div><div class="line">/div&gt;</div><div class="line"></div><div class="line">var demo4 = new Vue(&#123;</div><div class="line">	el:<span class="string">"#demo4"</span>,</div><div class="line">	data:&#123;</div><div class="line">		persons:[</div><div class="line">			&#123;name:<span class="string">"张三"</span>,age:<span class="string">"20"</span>&#125;,</div><div class="line">			&#123;name:<span class="string">"李四"</span>,age:<span class="string">"21"</span>&#125;,</div><div class="line">			&#123;name:<span class="string">"王二"</span>,age:<span class="string">"22"</span>&#125;]</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>以上就是我整理的vue中的常用指令，活用这些指向将会使开发事半功倍。</p>
+
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 changyan -->
+<div id="changyan-comment">
+    <!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="2017/09/19/170919/"  ></div>
+<script type="text/javascript">
+(function(){
+var appid = '';
+var conf = '';
+var width = window.innerWidth || document.documentElement.clientWidth;
+if (width < 960) {
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+</div>
+<style>
+    #changyan-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/09/17/170917/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
