@@ -12,7 +12,7 @@
     
     <title>
         
-            分类: 前端问题 | 
+            从零开始学Vue（三）之计算属性 | 
         
         木子林
     </title>
@@ -38,7 +38,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="李武林">
     <meta name="description" itemprop="description" content="木子林3">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",Vue">
 
     <!-- Site Verification -->
     
@@ -67,15 +67,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="分类: 前端问题 | 木子林">
+    <meta property="og:title" content="从零开始学Vue（三）之计算属性 | 木子林">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="木子林3">
-    
+    <meta property="og:article:tag" content="Vue"> 
 
+    
+        <meta property="article:published_time" content="10月 16, 2017" />
+        <meta property="article:modified_time" content="10月 16, 2017" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="分类: 前端问题 | 木子林">
+    <meta name="twitter:title" content="从零开始学Vue（三）之计算属性 | 木子林">
     <meta name="twitter:description" content="木子林3">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -83,13 +86,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/categories/前端问题/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2017/10/16/171016/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "木子林",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "李武林",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "朋友！不要怕，我并不是什么好人~"
+    },
+    "headline": "从零开始学Vue（三）之计算属性",
+    "url": "http://yoursite.com/2017/10/16/171016/index.html",
+    "datePublished": "10月 16, 2017",
+    "dateModified": "10月 16, 2017",
+    "description": "木子林3",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com"
+    }
+}
+</script>
 
 
     
@@ -276,167 +309,254 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为什么要使用计算属性？"><span class="post-toc-number">1.</span> <span class="post-toc-text">为什么要使用计算属性？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#怎么使用计算属性"><span class="post-toc-number">2.</span> <span class="post-toc-text">怎么使用计算属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计算属性-VS-方法"><span class="post-toc-number">3.</span> <span class="post-toc-text">计算属性 VS 方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计算属性-VS-watch"><span class="post-toc-number">4.</span> <span class="post-toc-text">计算属性 VS watch</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Settter"><span class="post-toc-number">5.</span> <span class="post-toc-text">Settter</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结"><span class="post-toc-number">6.</span> <span class="post-toc-text">总结</span></a></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 16 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/17/170917/">解决跨域问题</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            域名首先先了解一个...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/17/170917/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="李武林's avatar">
-            </div>
-            <div>
-                <strong>李武林</strong>
-                <span>9月 17, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/前端问题/">前端问题</a>
-            </span>
-
-            
-
-            
-                <!-- Comment Number -->
-                &nbsp;|&nbsp;
-                <span class="post_entry-comment" >
-                        <span id = "sourceId::2017/09/17/170917/" class = "cy_cmt_count" ></span>条评论
-                </span>
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/08/22/170822/">图片预加载</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            图片预加载
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/08/22/170822/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="李武林's avatar">
-            </div>
-            <div>
-                <strong>李武林</strong>
-                <span>8月 22, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/前端问题/">前端问题</a>
-            </span>
-
-            
-
-            
-                <!-- Comment Number -->
-                &nbsp;|&nbsp;
-                <span class="post_entry-comment" >
-                        <span id = "sourceId::2017/08/22/170822/" class = "cy_cmt_count" ></span>条评论
-                </span>
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 16 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                从零开始学Vue（三）之计算属性
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>李武林</strong>
+        <span>10月 16, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2017/10/16/171016/">
+    
+</ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Vue/">Vue</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=从零开始学Vue（三）之计算属性&url=http://yoursite.com/2017/10/16/171016/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=木子林&title=从零开始学Vue（三）之计算属性&summary=木子林3&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2017/10/16/171016/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h3 id="为什么要使用计算属性？"><a href="#为什么要使用计算属性？" class="headerlink" title="为什么要使用计算属性？"></a>为什么要使用计算属性？</h3><p>在模板中使用表达式十分的便利，但它设计的初衷是为了解决简单的逻辑运算，如果在模板中放入过多的逻辑会使模板难以维护，例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;span&gt;&#123;&#123;message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)&#125;&#125;&lt;/span&gt;</div></pre></td></tr></table></figure></p>
+<p>这段表达式的作用是用来得出message的翻转值，当模板中多次使用这个值的时候，这段代码将会出现多次，这样很不利于后期的维护。这时使用计算属性可以很方便的解决这个问题</p>
+<h3 id="怎么使用计算属性"><a href="#怎么使用计算属性" class="headerlink" title="怎么使用计算属性"></a>怎么使用计算属性</h3><p>声明计算属性和声明函数是类似的。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;翻转：&#123;&#123;reverseMessage&#125;&#125;&lt;/p&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var demo1 = new Vue(&#123;</div><div class="line">	el:<span class="string">"#demo1"</span>,</div><div class="line">	<span class="function"><span class="title">data</span></span>()&#123;</div><div class="line">		<span class="built_in">return</span> &#123;</div><div class="line">			message:<span class="string">"Hello"</span></div><div class="line">		&#125;</div><div class="line">	&#125;,</div><div class="line">	computed:&#123;</div><div class="line">		reverseMessage:<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">			<span class="built_in">return</span> this.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>我们声明的reverseMessage将用做属性demo1的getter函数，demo1.reverseMessage依赖于demo1.message，当demo1.message改变,demo1.reverseMessage也会随之改变。而且最妙的是我们是声明式地创建这种依赖关系：计算属性的 getter 是干净无副作用的。</p>
+<h3 id="计算属性-VS-方法"><a href="#计算属性-VS-方法" class="headerlink" title="计算属性 VS 方法"></a>计算属性 VS 方法</h3><p>有心人可能发现我们用同一个函数定义为方法，在表达式调用方法可以达到上面同样的效果。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;翻转：&#123;&#123;reverseMessage()&#125;&#125;&lt;/p&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var demo1 = new Vue(&#123;</div><div class="line">	el:<span class="string">"#demo1"</span>,</div><div class="line">	<span class="function"><span class="title">data</span></span>()&#123;</div><div class="line">		<span class="built_in">return</span> &#123;</div><div class="line">			message:<span class="string">"Hello"</span></div><div class="line">		&#125;</div><div class="line">	&#125;,</div><div class="line">	methods:&#123;</div><div class="line">		reverseMessage:<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">			<span class="built_in">return</span> this.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>虽然两种方法在实现结果上一致，但计算属性是基于他们之间的依赖关系进行缓存的，只有当message发生改变的时候，reverseMessage才会重新计算，意味着如果多次访问message将立刻返回之前的计算结果，而不必重新执行函数。而方法是只要触发渲染则就会重新执行函数，当如果页面中的某一值需要大量计算且多次使用的时候，那么明显的从缓存中的计算属性明显优于方法。如果希望每次都重新计算结果则可以使用方法。</p>
+<h3 id="计算属性-VS-watch"><a href="#计算属性-VS-watch" class="headerlink" title="计算属性 VS watch"></a>计算属性 VS watch</h3><p>熟悉AngularJS的人可能对watch属性比较熟悉，当一些数据随着某一属性变化而变化时，你可以通过watch来检测它。很多情况watch能和计算属性达到同样的效果，但也有watch使用过度的情况，例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">	FullName2:&#123;&#123;fullName2&#125;&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">var demo2 = new Vue(&#123;</div><div class="line">	el:<span class="string">"#demo2"</span>,</div><div class="line">	data:&#123;</div><div class="line">		firstName:<span class="string">""</span>,</div><div class="line">		middleName:<span class="string">""</span>,</div><div class="line">		lastName:<span class="string">""</span>,</div><div class="line">		fullName2:<span class="string">""</span></div><div class="line">	&#125;,</div><div class="line">	watch:&#123;</div><div class="line">		firstName:<span class="keyword">function</span>(val)&#123;</div><div class="line">			this.fullName2=val+<span class="string">" "</span>+this.middleName+<span class="string">" "</span>+this.lastName;</div><div class="line">		&#125;,</div><div class="line">		middleName:<span class="keyword">function</span>(val)&#123;</div><div class="line">			this.fullName2=this.firstName+<span class="string">" "</span>+val+<span class="string">" "</span>+this.lastName;</div><div class="line">		&#125;,</div><div class="line">		lastName:<span class="keyword">function</span>(val)&#123;</div><div class="line">			this.fullName2=this.firstName+<span class="string">" "</span>+this.middleName+<span class="string">" "</span>+val;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>上面的例子是检测一个人的全名，当firstName,middleName,lastName任意一个改变的时候就会更新fullName。我们在看看通过计算属性实现的代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">	FullName:&#123;&#123;fullName&#125;&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var demo2 = new Vue(&#123;</div><div class="line">	el:<span class="string">"#demo2"</span>,</div><div class="line">	data:&#123;</div><div class="line">		firstName:<span class="string">""</span>,</div><div class="line">		middleName:<span class="string">""</span>,</div><div class="line">		lastName:<span class="string">""</span></div><div class="line">	&#125;,</div><div class="line">	computed:&#123;</div><div class="line">		fullName:<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">			<span class="built_in">return</span> this.firstName+<span class="string">" "</span>+this.middleName+<span class="string">" "</span>+this.lastName;</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p>明显可以看出通过计算属性实现的代码更简洁明了。</p>
+<h3 id="Settter"><a href="#Settter" class="headerlink" title="Settter"></a>Settter</h3><p>计算属性默认的只有getter方法，但如果你有需要可以添加setter方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">computed:&#123;</div><div class="line">	fullName:&#123;</div><div class="line">		get:<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">			<span class="built_in">return</span> this.firstName+<span class="string">" "</span>+this.middleName+<span class="string">" "</span>+this.lastName;</div><div class="line">		&#125;,</div><div class="line">		<span class="built_in">set</span>:<span class="keyword">function</span>(val)&#123;</div><div class="line">		var names = val.split(<span class="string">' '</span>)</div><div class="line">		this.firstName = names[0]</div><div class="line">		<span class="keyword">if</span>(names.length&gt;=3)&#123;</div><div class="line">		this.middleName = names[names.length - 2]</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">		this.middleName = <span class="string">" "</span>;</div><div class="line">		&#125;</div><div class="line">		this.lastName = names[names.length - 1]</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当你F12,在控制台中输入<code>demo2.fullName = &quot;li wu lin&quot;</code>时相应的firstName,middleName,lastName都会更新。<br><img src="/images/171016/17101601.png" alt="setter"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>计算属性是Vue.js十分好用的一个属性，重点掌握它是基于依赖缓存的特点，在实际开发善用这个特点可以极大优化和提高代码质量和效率。<br><a href="/demo/171016/计算属性Demo.html">demo演示地址</a></p>
+
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 changyan -->
+<div id="changyan-comment">
+    <!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="2017/10/16/171016/"  ></div>
+<script type="text/javascript">
+(function(){
+var appid = '';
+var conf = '';
+var width = window.innerWidth || document.documentElement.clientWidth;
+if (width < 960) {
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+</div>
+<style>
+    #changyan-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/10/10/171010/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -527,7 +647,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">5</span></a>
+                <a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">4</span></a>
             </ul>
         </li>
         
@@ -545,7 +665,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/Vue/">Vue<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/bug/">bug<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/test/">test<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/前端问题/">前端问题<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/技术总结/">技术总结<span class="sidebar_archives-count">2</span></a>
+                <a class="sidebar_archives-link" href="/categories/Vue/">Vue<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/技术总结/">技术总结<span class="sidebar_archives-count">5</span></a>
             </ul>
         </li>
         
